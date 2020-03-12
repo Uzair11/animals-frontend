@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import LoginPage from './Login';
-import LandingPage from './Landing';
 import Controller from './Controller';
 import * as serviceWorker from './serviceWorker';
 

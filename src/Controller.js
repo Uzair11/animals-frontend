@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import * as CONSTANTS from './Constants'
 import LoginPage from './Login';
 import LandingPage from './Landing';
-import axios from 'axios';
 
 class Controller extends Component {
 	constructor(props){
