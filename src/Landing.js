@@ -8,7 +8,7 @@ class LandingPage extends Component {
 		this.state = {
 			currentAnimalFocused: -1,
 			updateText: '',
-			fetchedData: [1,2,3,4],
+			fetchedData: [],
 		}
 	}
 
@@ -20,8 +20,9 @@ class LandingPage extends Component {
             <thead>
                 <tr>
                     <th>Name </th>
-                    <th>Date of Birth</th>
-                    <th>Update Name</th>
+                    <th>Type </th>
+                    <th>Date-Of-Birth</th>
+                    <th>Update-Name</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -31,7 +32,7 @@ class LandingPage extends Component {
           </table>
           <br/>
           <span style={{fontSize:12}}> To add animal, Please use admin interface. <br/>
-                                       Admin interface: <a href={CONSTANTS.BASE_URL + 'admin'}>{CONSTANTS.BASE_URL + 'admin'}</a>
+                                       Admin interface: <a href={CONSTANTS.BASE_URL}>{CONSTANTS.BASE_URL}</a>
           </span>
 
 
@@ -53,6 +54,7 @@ class LandingPage extends Component {
         rows.push(
             <tr key={this.state.fetchedData[i].id}>
                 <td>{this.state.fetchedData[i].name} </td>
+                <td>{this.state.fetchedData[i].type === 1 ? 'Cat' : 'Dog'}</td>
                 <td>{this.state.fetchedData[i].dob}</td>
                 <td>
                     <input  placeholder="Update name"

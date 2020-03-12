@@ -21,8 +21,8 @@ class LoginPage extends Component {
 		        <input type="text" name="email" id="email" onChange={this.onEmailChange} value={this.state.email}/><br/><br/>
 		        <label>Password:</label>
 		        <input type="text" name="password" id="password" onChange={this.onPasswordChange} value={this.state.password}/><br/><br/>
+		        <p>{this.state.error}</p>
 		        <input type="submit" value="Submit" onClick={this.attemptLogin}/>
-		      <label name='error' id='error' value={this.state.error}></label>
 					<br/><br/>
 		    </div>
 
@@ -44,11 +44,13 @@ class LoginPage extends Component {
         })
         .then((response) => {
           console.log(response);
+          this.setState({error: ''})
           sessionStorage.setItem('token',response.data.token)
           this.props.setUserProps(response.data.token, response.data.id, response.data.email)
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
+          this.setState({error: 'Login failed. Please check email and credentials and try again.'})
       });
 	}
 
